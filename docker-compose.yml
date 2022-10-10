@@ -1,0 +1,65 @@
+version: '3.7'
+
+networks:
+  store-apps:
+
+services:
+  site:
+    build: 
+      context : .
+      dockerfile : nginx.dockerfile
+    container_name: nginx_store_apps
+    ports:
+     - "8080:80"
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - store-apps
+# mySQL Container
+  mysql:
+    image: mysql:5.7.29
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: store-apps
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: developer
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - store-apps
+# php container
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: store_apps_php
+    volumes:
+      - ./src:/var/www/html:delegated
+    ports:
+      - "9000:9000"
+    networks:
+      - store-apps
+
+  # artisan command 
+  artisan:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: artisan
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - mysql
+    working_dir: /var/www/html
+    user: laravel
+    entrypoint: ["php", "/var/www/html/artisan"]
+    networks:
+      - store-apps
