@@ -25,14 +25,8 @@ class ProductController extends Controller
         if($keyword){
             $products
                 ->where('product_name','like', '%' . $keyword . '%')
-                ->or_where('product_name','like', '%' . $keyword . '%');
+                ->orWhere('product_name','like', '%' . $keyword . '%');
         }
-        // if($category){
-        //     $products
-        //     ->wherehas('product_category',function($query){
-        //        $query->where('categories_name', 'id', '=', $category);
-        //     });
-        // }
         return Helper::success($products->paginate($limit), 'Data Products Retrieve Successfully');
     }
 

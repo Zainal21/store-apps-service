@@ -27,7 +27,6 @@ class AuthController extends Controller
                 'email' => 'required|email|unique:users|min:5',
                 'password' => 'required',
             ]);
-    
             if($rules->fails()){
                 return Helper::error(null, $rules->errors(), 400);
             }else{
