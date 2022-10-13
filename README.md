@@ -71,6 +71,8 @@ $ docker compose exec php php /var/www/html/artisan key:generate
 $ docker compose exec php php /var/www/html/artisan migrate --seed
 ```
 
-8. Open Your Browser in port 8080 (nginx expose port in 8080)
+8. Open in your browser in port 8080 (because nginx expose port in 8080)
+
+---------------------------------------------------------------------------
 
 Copyright © 2022 by Muhamad Zainal Arifin
