@@ -49,9 +49,9 @@ $ cd store-apps-service/src
 $ Composer install
 ```
 
-4. Setup your environment variabl in `.env` files or rename `.env.example to .env` based configuration in your _docker-compose.yml_ file.
+4. Setup your environment variabl in `.env` files or rename `.env.example to .env` based on your configuration in your _docker-compose.yml_ file.
 
-5. run create container and run use  docker compose
+5. run create container and run your container use  docker compose
 
 ```bash
 
