@@ -44,7 +44,7 @@ class ProductGalleryController extends Controller
                 $imageUpload = $file->move('uploads/products-galleries/', Helper::generate_filename($file, 'product-galleries', 'galleries-product-'));
             }
             $product_galleries = ProductGallery::create([
-                'products_id' => $request->input('products_id'),
+                'products_id' => $request->input('productId'),
                 'image' => !empty($imageUpload) ? $imageUpload : ''
             ]);
             return Helper::success($product_galleries,'Product Galleries Created Successfully', 201);
@@ -80,7 +80,7 @@ class ProductGalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $schema = $this->rules_validation();
+        $rules = $this->rules_validation($id);
         try {
             if($rules->fails()){
                 return Helper::error($rules->errors(), null);
@@ -93,7 +93,6 @@ class ProductGalleryController extends Controller
                     Helper::remove_file($productGallery->image);
                 }
                 $actionQuery = $productGallery->update([
-                    'products_id' => $request->input('products_id'),
                     'image' => !empty($imageUpload) ? $imageUpload : $productGallery->image
                 ]);
                 return Helper::success($actionQuery, 'Product Gallery Updated Successfully');
@@ -129,10 +128,14 @@ class ProductGalleryController extends Controller
     protected function rules_validation($id = false)
     {
         $rules = [
-            'products_id' => 'required',
+            'productId' => 'required',
             'notes' => 'string'
         ];
-        $typeRules = $id ?  'image|max:2048' : 'required|image|max:2048';
+        $typeRules = 'required|image|max:2048';
+        if($id){
+            $typeRules = 'image|max:2048';
+            unset($rules['productId']);
+        }
         $rule_image = ['image' => $typeRules];
         $schema = Validator::make(request()->all(),array_merge($rules, $rule_image));
         return $schema;
