@@ -26,17 +26,17 @@
 
 ## Features / API Resources
 
--[x]  Authentication with JWT (JSON Web Token)
--[x]  CRUD Product
--[x]  CRUD Product Category
--[x]  CRUD Product Gallery
--[x]  Manage Cart Item
--[x]  Create Order (Midtrans Payment Gateway)
--[x]  Callback Notification When Transaction Approve/settlement (Midtrans Payment Gateway)
+- [x]  Authentication with JWT (JSON Web Token)
+- [x]  CRUD Product
+- [x]  CRUD Product Category
+- [x]  CRUD Product Gallery
+- [x]  Manage Cart Item
+- [x]  Create Order (Midtrans Payment Gateway)
+- [x]  Callback Notification When Transaction Approve/settlement (Midtrans Payment Gateway)
 
--[]   Push Notification With Email & Whatsapp (Up Coming)
--[]   Another Payment gateway integrated (Up Coming)
--[]   Excel Export and Import Transaction (Up Coming)
+- [ ]   Push Notification With Email & Whatsapp (Up Coming)
+- [ ]   Another Payment gateway integrated (Up Coming)
+- [ ]   Excel Export and Import Transaction (Up Coming)
 
 
 ## Installation
