@@ -1,12 +1,4 @@
-# Store Apps Service API (Project Gabut)
-
-<p align="center">
-  <a href="https://laravel.com/">
-    <img title="Laravel" src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400">
-  </a>
-</p>
-
----
+# Store Apps Service API (Gabut Apps)
 
 ## Prerequiste
 
@@ -32,6 +24,21 @@
 
 (Running inside Container)
 
+## Features / API Resources
+
+-[x]  Authentication with JWT (JSON Web Token)
+-[x]  CRUD Product
+-[x]  CRUD Product Category
+-[x]  CRUD Product Gallery
+-[x]  Manage Cart Item
+-[x]  Create Order (Midtrans Payment Gateway)
+-[x]  Callback Notification When Transaction Approve/settlement (Midtrans Payment Gateway)
+
+-[]   Push Notification With Email & Whatsapp (Up Coming)
+-[]   Another Payment gateway integrated (Up Coming)
+-[]   Excel Export and Import Transaction (Up Coming)
+
+
 ## Installation
 
 1. Clone repository
@@ -43,7 +50,6 @@ $ git clone https://github.com/Zainal21/store-apps-service.git
 2. move to directory project and Install depedencies
 
 ```bash
-
 $ cd store-apps-service/src
 
 $ Composer install
@@ -54,7 +60,6 @@ $ Composer install
 5. change directory to root folder then run create container and run your container using docker compose
 
 ```bash
-
 $ docker compose up -d
 
 ```
@@ -72,6 +77,12 @@ $ docker compose exec php php /var/www/html/artisan migrate --seed
 ```
 
 8. Open in your browser in port 8080 (because nginx expose port in 8080)
+
+
+
+## Insomnia Collection (Example)
+
+You can access in this link https://store-apps-documentation.netlify.app/
 
 ---------------------------------------------------------------------------
 
